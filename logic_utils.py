@@ -17,13 +17,17 @@ def get_range_for_difficulty(difficulty: str):
     return 1, 100
 
 
-def parse_guess(raw: str):
+def parse_guess(raw: str, low: int = None, high: int = None):
     """
     Parse user input into an int guess.
 
     Args:
         raw: The raw text entered by the user. May be None or empty,
             and may contain a decimal value (e.g. "5.0").
+        low: Optional inclusive lower bound. When given with high,
+            the parsed value must fall within [low, high].
+        high: Optional inclusive upper bound. When given with low,
+            the parsed value must fall within [low, high].
 
     Returns:
         A tuple (ok, guess_int, error_message):
@@ -44,6 +48,9 @@ def parse_guess(raw: str):
             value = int(raw)
     except Exception:
         return False, None, "That is not a number."
+
+    if low is not None and high is not None and not (low <= value <= high):
+        return False, None, f"Enter a number between {low} and {high}."
 
     return True, value, None
 
