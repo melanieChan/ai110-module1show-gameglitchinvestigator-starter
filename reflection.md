@@ -27,9 +27,12 @@ Document at least 3 bugs you found. Add rows as needed.
 
 ## 2. How did you use AI as a teammate?
 
-- Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
+- Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)? 
+  - Claude
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+  - It correctly identified source of the bug of negative scores and understood the logic. I verified the result by reviewing the logic of the AI generated code.
 - Give one example of an AI suggestion you did not accept as written (including what the AI suggested, why you rejected or changed it, and how you verified your version). It does not have to be a suggestion that was wrong: over-engineered, out of scope, harder to read, or a poor fit for this codebase all count.
+  - For the new game bug, it fixed a different bug that was unrelated to my prompt. I instructed it to fix a  bug where the state was not being updated, but it fixed a different bug in the same area where values were hardcoded.
 
 ---
 
