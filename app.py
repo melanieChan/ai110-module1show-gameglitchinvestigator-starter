@@ -54,6 +54,7 @@ def update_score(current_score: int, outcome: str, attempt_number: int):
             points = 10
         return current_score + points
 
+    # FIXME: score should not go below 0
     if outcome == "Too High":
         if attempt_number % 2 == 0:
             return current_score + 5
@@ -132,6 +133,7 @@ with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
 if new_game:
+    # FIXME: bug with new game not starting
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(1, 100)
     st.success("New game started.")

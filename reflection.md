@@ -5,18 +5,23 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 1. What was broken when you started?
 
 - What did the game look like the first time you ran it?
+  - A game where the player guess a number within a range.
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
+  - The hints that advised to go higher and lower were not the correct direction. 
+  - When clicking the new game button, nothing happened.
 
 **Bug Reproduction Log**
 
 Document at least 3 bugs you found. Add rows as needed.
 
-| Input | Expected Behavior | Actual Behavior | Console Output / Error |
-|-------|-------------------|-----------------|------------------------|
-| | | | |
-| | | | |
-| | | | |
+| Input | Expected Behavior | Actual Behavior | Console Output / Error | Suspected Code Location
+|-------|-------------------|-----------------|------------------------|------------------------|
+| 1 | Hint should display go higher | Hint displays go lower | N/A | app.py, check_guess
+| -1 | Should not be allowed to input lower than 1 | Hint displays go lower | N/A | app.py, check_guess
+| 101 | Should not be allowed to input higher than 100 | Hint displays go higher | N/A | app.py, check_guess
+| 6 (when secret is 40) | Hint should appear displaying go higher | Hint does not appear and score goes negative | N/A | app.py, update_score
+| Clicked "New Game" button | Attempts reset | Nothing changed | N/A | app.py, new_game
 
 ---
 
