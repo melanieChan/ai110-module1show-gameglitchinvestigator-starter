@@ -47,11 +47,17 @@ Describe your fixed game in numbered steps so a reader can follow along without 
 ## 🧪 Test Results
 
 ```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
+====================================================================
+platform darwin -- Python 3.14.7, pytest-9.1.1, pluggy-1.6.0
+plugins: anyio-4.15.1
+collected 11 items                                                                                                                                          
+
+tests/test_game_logic.py ...........                                                                                                                  [100%]
+
+==================================================================== 11 passed in 0.01s =====================================================================
 ```
 
 ## 🚀 Stretch Features
 
-- [ ] [If you choose to complete Challenge 4, describe the Enhanced UI changes here — a screenshot is optional]
+- [x] Added handling of invalid inputs and added tests for input edge cases
+- [x] All functions in `logic_utils.py` have docstrings
