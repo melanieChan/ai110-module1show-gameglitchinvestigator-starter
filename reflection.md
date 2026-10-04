@@ -39,9 +39,12 @@ Document at least 3 bugs you found. Add rows as needed.
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
+  - I ran the app and ran tests and confirmed it worked as expected.
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
+  - I ran the original 3 tests and when they failed, realized that it wasn't the app code but the test code that had bugs.
 - Did AI help you design or understand any tests? How?
+  - Yes. I asked it for test suggestions based on the application code, and it gave thorough tests.
 
 ---
 
