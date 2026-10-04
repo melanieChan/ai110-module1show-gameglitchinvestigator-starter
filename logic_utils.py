@@ -1,5 +1,13 @@
 def get_range_for_difficulty(difficulty: str):
-    """Return (low, high) inclusive range for a given difficulty."""
+    """Return (low, high) inclusive range for a given difficulty.
+
+    Args:
+        difficulty: One of "Easy", "Normal", or "Hard". Any other value
+            falls back to the "Normal" range.
+
+    Returns:
+        A tuple (low, high) giving the inclusive bounds of the range.
+    """
     if difficulty == "Easy":
         return 1, 20
     if difficulty == "Normal":
@@ -13,7 +21,15 @@ def parse_guess(raw: str):
     """
     Parse user input into an int guess.
 
-    Returns: (ok: bool, guess_int: int | None, error_message: str | None)
+    Args:
+        raw: The raw text entered by the user. May be None or empty,
+            and may contain a decimal value (e.g. "5.0").
+
+    Returns:
+        A tuple (ok, guess_int, error_message):
+            ok: True if parsing succeeded, False otherwise.
+            guess_int: The parsed integer guess, or None on failure.
+            error_message: A user-facing error string, or None on success.
     """
     if raw is None:
         return False, None, "Enter a guess."
@@ -36,7 +52,15 @@ def check_guess(guess, secret):
     """
     Compare guess to secret and return (outcome, message).
 
-    outcome examples: "Win", "Too High", "Too Low"
+    Args:
+        guess: The player's guess. Typically an int, but may be any
+            type comparable to secret.
+        secret: The target value the guess is being compared against.
+
+    Returns:
+        A tuple (outcome, message):
+            outcome: One of "Win", "Too High", or "Too Low".
+            message: A user-facing hint describing the outcome.
     """
     if guess == secret:
         return "Win", "🎉 Correct!"
@@ -57,7 +81,16 @@ def check_guess(guess, secret):
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
-    """Update score based on outcome and attempt number."""
+    """Update score based on outcome and attempt number.
+
+    Args:
+        current_score: The player's score before this update.
+        outcome: The result of the guess, as returned by check_guess.
+        attempt_number: The count of attempts made so far.
+
+    Returns:
+        The updated score.
+    """
     if outcome == "Win":
         points = 100 - 10 * (attempt_number + 1)
         if points < 10:
